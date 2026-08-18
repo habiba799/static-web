@@ -25,7 +25,7 @@ jobs:
       - name: Upload Website Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './static-web/static-web' # Uploads everything in your main project folder
+          path: '.' # Uploads everything in your main project folder
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
