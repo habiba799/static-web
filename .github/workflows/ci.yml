@@ -25,7 +25,7 @@ jobs:
       - name: Upload Website Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Uploads everything in your main project folder
+          path: './static-web/ec2-challenging-lab-master'  # Uploads everything in your main project folder
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
