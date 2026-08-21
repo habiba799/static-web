@@ -1,31 +1,28 @@
-name: Deploy Static Website
+name: Static Website CI 
 
 on:
   push:
     branches:
       - main
-
-# Grant permissions to allow GitHub Actions to deploy files to your site
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest # Keeping it simple using GitHub's cloud computer
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v4
+    #  - name: Setup GitHub Pages
+    #    uses: actions/configure-pages@v4
 
-      - name: Upload Website Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './static-web/'  # Uploads everything in your main project folder
+     ##  uses: actions/upload-pages-artifact@v3
+       # with:
+        #  path: './static-web/'  # Uploads everything in your main project folder
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+     # - name: Deploy to GitHub Pages
+      #  uses: actions/deploy-pages@v4
+      - name: Check Website
+        run: test -f static-web/index.html
+        
