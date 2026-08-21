@@ -17,12 +17,15 @@ jobs:
     #  - name: Setup GitHub Pages
     #    uses: actions/configure-pages@v4
 
-     ##  uses: actions/upload-pages-artifact@v3
-       # with:
-        #  path: './static-web/'  # Uploads everything in your main project folder
+   
 
      # - name: Deploy to GitHub Pages
       #  uses: actions/deploy-pages@v4
       - name: Check Website
         run: test -f static-web/index.html
-        
+      - name: Upload Website Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+         name: static-website
+         path: './static-web/'  # Uploads everything in your main project folder
+         
